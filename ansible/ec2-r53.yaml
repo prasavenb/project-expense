@@ -1,5 +1,6 @@
 - name: launch 3 servers
   hosts: local
+  connection: local
   become: yes
   vars:
     image.id : "ami-09c813fb71547fc4f"
