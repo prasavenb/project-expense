@@ -1,8 +1,6 @@
 - name: install mysql server and PyMySQL
   ansible.builtin.package:
-    name:
-    - "mysql-server"
-    - "PyMySQL"
+    name: "mysql-server"    
     state: "present"
 
 - name: enable and start mysql  server
@@ -10,6 +8,13 @@
     name: mysqld
     state: started
     enabled: yes
+
+- name: install PyMySQL
+  ansible.builtin.pip:
+    name:
+    - PyMySQL
+    state: "present"
+    executable: pip3.9
 
 - name: connect to mysql server
   community.mysql.mysql_info:
