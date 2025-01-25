@@ -25,8 +25,8 @@
       state: "present"
       security_group: "{{ security_group }}"
       region: "us-east-1"
-    loop:
-    - "{{ instances }}"
+    loop: "{{ instances }}"
+  
     register: "ec2_info"
   - name: "print ec2 info"
     ansible.builtin.debug:
