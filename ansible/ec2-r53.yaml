@@ -40,7 +40,7 @@
       record: "{{ item.item }}.{{ zone_name}}"
       type: A
       ttl: 1
-      value: "{{ item.instances.private_ip_address }}"
+      value: "{{ item.instances[0].private_ip_address }}"
       wait: true
     loop: "{{ item.results }}"
   
