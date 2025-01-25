@@ -24,5 +24,6 @@
       name: "{{ item }}"
       state: "present"
       security_group: "{{ security_group }}"
+      region: "us-east-1"
     loop:
     - "{{ instances }}"
