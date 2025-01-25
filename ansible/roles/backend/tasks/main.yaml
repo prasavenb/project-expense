@@ -49,3 +49,4 @@
     login_user: "root"
     state: "import"
     name: "all"
+    target: "/app/schema/backend.sql"
