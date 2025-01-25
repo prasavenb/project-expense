@@ -1,0 +1,21 @@
+- name: launch 3 servers
+  hosts: local
+  become: yes
+  vars:
+    image.id : "ami-09c813fb71547fc4f"
+    security_group  : "sg-04177bb468ff68998"
+    instances:
+    - mysql
+    - backend
+    - frontend
+
+  tasks:
+  - name: launch instances
+    amazon.aws.ec2_instance:
+      image.id: "{{ image.id }}"
+      instance_type: "t2.micro"
+      name: "{{ item }}"
+      state: "present"
+      security_group: "{{ security_group }}"
+    loop:
+    - "{{ instances }}"
