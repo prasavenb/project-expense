@@ -27,7 +27,8 @@
 - name: install dependencies
   ansible.builtin.command: "npm install"
   args:
-    /app
+    cd: /app
+    
 
 - name: copy the backend service
   ansible.builtin.template:
