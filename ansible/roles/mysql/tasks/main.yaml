@@ -1,0 +1,23 @@
+- name: install mysql server
+  ansible.builtin.package:
+    name: "mysql-server"
+    state: "present"
+
+- name: enable and start mysql  server
+  ansible.builtin.service:
+    name: mysqld
+    state: started
+    enabled: yes
+
+- name: connect to mysql server
+  community.mysql.mysql_info:
+    login_host: "{{ login_host }}"
+    login_user: "root"
+    login_password: "{{ login_password }}"
+  register: "mysql_info"
+  ignore_errors: true
+
+- name: "print mysql info"
+  ansible.builtin.debug:
+    msg: "{{ mysql_info }}"
+
