@@ -23,7 +23,7 @@
       image_id: "{{ image_id }}"
       instance_type: "t2.micro"
       name: "{{ item }}"
-      state: "present"
+      state: "absent"
       security_group: "{{ security_group }}"
       region: "us-east-1"
     loop: "{{ instances }}"  
