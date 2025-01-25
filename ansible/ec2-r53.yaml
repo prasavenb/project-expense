@@ -27,3 +27,5 @@
       region: "us-east-1"
     loop:
     - "{{ instances }}"
+    register: "ec2 info"
+  
