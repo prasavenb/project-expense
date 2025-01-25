@@ -3,7 +3,7 @@
   connection: local
   become: yes
   vars:
-    image.id : "ami-09c813fb71547fc4f"
+    image_id : "ami-09c813fb71547fc4f"
     security_group  : "sg-04177bb468ff68998"
     instances:
     - mysql
@@ -13,7 +13,7 @@
   tasks:
   - name: launch instances
     amazon.aws.ec2_instance:
-      image.id: "{{ image.id }}"
+      image_id: "{{ image_id }}"
       instance_type: "t2.micro"
       name: "{{ item }}"
       state: "present"
