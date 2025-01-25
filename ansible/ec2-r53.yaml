@@ -35,13 +35,13 @@
 
   - name: create r53 records
     amazon.aws.route53:
-      state: present
+      state: "delete"
       zone: "{{ zone_name }}"
       record: "{{ item.item }}.{{ zone_name}}"
       type: A
       ttl: 1
       value: "{{ item.instances[0].private_ip_address }}"
-      wait: true
-      overwrite: true
+      #wait: true
+      #overwrite: true
     loop: "{{ ec2_info.results }}"
   
