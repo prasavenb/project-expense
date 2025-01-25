@@ -35,6 +35,13 @@
     src: "backend.service.j2"
     dest: /etc/systemd/system/backend.service
 
+- name: install PyMySQL
+  ansible.builtin.pip:
+    name:
+    - PyMySQL
+    state: "present"
+    executable: pip3.9
+
 - name: import mysql data
   community.mysql.mysql_db:
     login_password: "{{ login_password }}"
