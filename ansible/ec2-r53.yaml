@@ -56,4 +56,5 @@
       wait: true
       overwrite: true
     when: "item.item == frontend"
+    loop: "{{ ec2_info.results }}"
   
