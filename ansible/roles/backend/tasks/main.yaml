@@ -39,6 +39,7 @@
   ansible.builtin.pip:
     name:
     - PyMySQL
+    - cryptography
     state: "present"
     executable: pip3.9
 
