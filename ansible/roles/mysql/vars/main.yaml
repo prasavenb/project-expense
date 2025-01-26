@@ -1,2 +1,2 @@
-login_host: "mysql.vensa.online"
-login_password: "ExpenseApp@1"
+login_host: mysql.vensa.online
+mysql_login_password: ExpenseApp@1
