@@ -33,9 +33,9 @@
 #     remote_src: yes
 
 - name: import roles from common
-   ansible.builtin.import_role:
-        name: common
-        tasks_from: main
+  ansible.builtin.import_role:
+      name: common
+      tasks_from: main
 
 - name: install dependencies
   ansible.builtin.command: "npm install"
