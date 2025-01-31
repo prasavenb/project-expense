@@ -9,7 +9,7 @@ module "backend" {
     var.common_tags,
     var.backend_tags,
     {
-        Name = local.resource_name
+        Name = "${local.resource_name}-backend"
     }
   )  
 }
@@ -27,14 +27,14 @@ resource "null_resource" "backend" {
   }
   
   provisioner "file" {
-    source      = "${var.backend_tags.Component}.sh"
+    source      = "${var.backend_tags.component}.sh"
     destination = "/tmp/backend.sh"
   }
 
   provisioner "remote-exec" {    
     inline = [
-      "chmod +x backend.sh",
-      "sudo sh backend.sh"
+      "chmod +x /tmp/backend.sh",
+      "sudo sh /tmp/backend.sh ${var.backend_tags.component} ${var.environment}"
     ]
   }
 }
