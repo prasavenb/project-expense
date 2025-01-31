@@ -12,8 +12,6 @@ module "db" {
   password = "ExpenseApp1"
   port     = "3306"
 
-  iam_database_authentication_enabled = true
-
   vpc_security_group_ids = [local.mysql_sg_id]
 
   # DB subnet group
@@ -73,6 +71,6 @@ module "records" {
         module.db.db_instance_address
       ]
       allow_overwrite = true
-    }
+    },
   ]  
 }
