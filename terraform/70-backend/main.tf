@@ -17,7 +17,7 @@ module "backend" {
 resource "null_resource" "backend" {
   # Changes to any instance of the cluster requires re-provisioning
   triggers = {
-    cluster_instance_ids = module.backend.id
+    instance_id = module.backend.id
   }
   connection {
     type     = "ssh"
