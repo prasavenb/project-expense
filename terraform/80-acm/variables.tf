@@ -11,8 +11,11 @@ variable "common_tags" {
         terraform = true
     }
 }
-variable "backend_tags" {
-    default = {
-        Component = "backend"
-    }
+
+variable "domain" {
+    default = "vensa.online"
+}
+
+variable "zone_id" {
+    default = "Z07511293FMH2POOUP6DK"
 }

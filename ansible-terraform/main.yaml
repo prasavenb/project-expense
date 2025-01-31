@@ -1,7 +1,0 @@
-- name: "configure {{ component }} server"
-  hosts: all
-  become: yes
-  vars_file:
-  - variables-dev.yaml
-  roles:
-  - "{{ component }}"

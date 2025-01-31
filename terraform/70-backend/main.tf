@@ -7,8 +7,9 @@ module "backend" {
   ami = data.aws_ami.joindevops.id
   tags = merge(
     var.common_tags,
+    var.backend_tags,
     {
-        Name = "${local.resource_name}-backend"
+        Name = local.resource_name
     }
   )  
 }
@@ -21,17 +22,18 @@ resource "null_resource" "backend" {
   connection {
     type     = "ssh"
     user     = "ec2-user"
-    password = DevOps321
+    password = "DevOps321"
     host     = module.backend.private_ip
   }
+  
   provisioner "file" {
-    source      = "backend.sh"
+    source      = "${var.backend_tags.Component}.sh"
     destination = "/tmp/backend.sh"
   }
 
   provisioner "remote-exec" {    
     inline = [
-      "chmod +x backend.sh"
+      "chmod +x backend.sh",
       "sudo sh backend.sh"
     ]
   }
