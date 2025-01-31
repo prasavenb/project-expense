@@ -1,0 +1,4 @@
+login_host: "mysql.vensa.online"
+login_password: "ExpenseApp@1"
+app_location: /app
+component: backend
