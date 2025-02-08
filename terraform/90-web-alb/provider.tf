@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "exp-dev"
-    key = "exp-dev-alb"
+    key = "exp-dev-web-alb"
     region = "us-east-1"
     dynamodb_table = "exp-dev-locking"
   }
